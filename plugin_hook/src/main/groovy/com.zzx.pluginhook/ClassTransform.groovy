@@ -89,7 +89,8 @@ class ClassTransform extends Transform {
                         ClassReader classReader = new ClassReader(inputStream)
                         ClassWriter classWriter = new ClassWriter(classReader, ClassWriter.COMPUTE_MAXS)
                         ClassVisitor classVisitor = new CastThreadPoolAdapter(classWriter,mPluginExt)
-                        classReader.accept(classVisitor, ClassReader.EXPAND_FRAMES)
+                        ClassVisitor threadAdapterVisitor = new CastThreadAdapter(classVisitor,mPluginExt)
+                        classReader.accept(threadAdapterVisitor, ClassReader.EXPAND_FRAMES)
                         byte[] bytes = classWriter.toByteArray()
                         jarOutputStream.write(bytes)
                     } else {
@@ -128,10 +129,8 @@ class ClassTransform extends Transform {
                     ClassReader classReader = new ClassReader(Files.readAllBytes(file.toPath()));
                     ClassWriter classWriter = new ClassWriter(classReader, ClassWriter.COMPUTE_MAXS);
                     ClassVisitor classVisitor = new CastThreadPoolAdapter(classWriter,mPluginExt);
-                    classReader.accept(classVisitor, ClassReader.EXPAND_FRAMES);
-//                    ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS);
-//                    TestClassNode node = new TestClassNode(classWriter)
-//                    classReader.accept(node, ClassReader.EXPAND_FRAMES)
+                    ClassVisitor threadAdapterVisitor = new CastThreadAdapter(classVisitor,mPluginExt)
+                    classReader.accept(threadAdapterVisitor, ClassReader.EXPAND_FRAMES);
                     byte[] bytes = classWriter.toByteArray();
                     FileOutputStream fileOutputStream = new FileOutputStream(file.getParentFile().getAbsolutePath() + File.separator + file.getName());
                     fileOutputStream.write(bytes);

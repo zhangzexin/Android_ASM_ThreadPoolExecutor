@@ -5,23 +5,23 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
+/**
+ * 线程池统一收敛适配器
+ */
 class CastThreadPoolAdapter extends ClassVisitor {
-
-    String exc_descriptor = "Ljava.util.concurrent.ThreadPoolExecutor;";
-    String exc_classname;
 
     private String className;
 
-    final String ignore_thread_pool = "com/zzx/testapp/proxy/JavaThreadPoolExecutorProxy";
-    String rep_thread_pool_class = "com/zzx/testapp/proxy/JavaThreadPoolExecutorProxy";
+    String ignore_thread_pool = "";
+    String rep_thread_pool_class = "";
+    String rep_thread_pool_return_des = "";
+    String rep_thread_pool_extends_instance = "";
     final String old_thread_pool_field_descriptor = "Ljava.util.concurrent.ThreadPoolExecutor;";
     final String old_thread_pool_extends = "java/util/concurrent/ThreadPoolExecutor";
-    String rep_thread_pool_extends_instance = "asw_getInstance";
-     String rep_thread_pool_extends_des = "()Lcom/zzx/testapp/proxy/JavaThreadPoolExecutorProxy;";
-     String rep_thread_pool_return_des = "()Lcom/zzx/testapp/proxy/JavaThreadPoolExecutorProxy;";
     final String rep_thread_pool_extends2 = "java/util/concurrent/Executors";
     final String rep_thread_pool_extends_des2 = "()Ljava/util/concurrent/ExecutorService;";
     final String rep_thread_pool_extends3 = "java/util/concurrent/ExecutorService";
+
     final String ignore_thread_runnable = "com/zzx/testapp/proxy/ThreadProxy";
 
     boolean isInit = false;
@@ -33,13 +33,15 @@ class CastThreadPoolAdapter extends ClassVisitor {
 
     public CastThreadPoolAdapter(ClassVisitor classVisitor, PluginExt pluginExt) {
         super(Opcodes.ASM6, classVisitor);
-        System.out.println("thread_des:" + pluginExt.thread_des + " threadclass:"+ pluginExt.threadclass +" method:"+ pluginExt.method);
-//        rep_thread_pool_extends_instance = pluginExt.method;
-//        rep_thread_pool_extends_des = pluginExt.thread_des;
-//        rep_thread_pool_return_des = "()"+rep_thread_pool_extends_des;
-//        rep_thread_pool_class = pluginExt.threadclass;
-        Type type = Type.getType(exc_descriptor);
-        exc_classname = type.getClassName();
+        System.out.println("thread_des:" + pluginExt.threadpool_des +" method:"+ pluginExt.poolmethod);
+        Type typePoolClass = Type.getType(pluginExt.threadpool_des);
+        String poolClassName = typePoolClass.getClassName();
+        String poolInternalName = typePoolClass.getInternalName();
+        String poolDescripto = typePoolClass.getDescriptor();
+        ignore_thread_pool = poolInternalName;
+        rep_thread_pool_class = poolInternalName;
+        rep_thread_pool_return_des = "()"+poolDescripto;
+        rep_thread_pool_extends_instance = pluginExt.poolmethod;
     }
 
     @Override

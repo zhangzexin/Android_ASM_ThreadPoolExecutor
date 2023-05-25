@@ -46,8 +46,12 @@ public class JavaThreadPoolExecutorProxy extends ThreadPoolExecutor {
    @Override
    public void execute(Runnable command) {
       Log.d("TAG", "execute: JavaThreadPoolExecutorProxy");
-      command.run();
+      asw_getInstance().executeProxy(command);
 //      CoreThreadPoolExecutor.INSTANCE.execute(command);
+   }
+
+   public void executeProxy(Runnable command) {
+      super.execute(command);
    }
 
 

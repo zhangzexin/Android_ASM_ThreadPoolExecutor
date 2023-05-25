@@ -27,11 +27,11 @@
         {
           "name": "pluginhook-1.0.jar",
           "url": "pluginhook-1.0.jar",
-          "size": 25484,
-          "sha512": "e74e1f696338e94a43c3f04b09b777628ab4e1b74b98225c5aea084dc42c6d6ea0ab48df692af945703fe3bf0a3b25b8d85bcaf9ce53a41408d3a9e1d8eb301c",
-          "sha256": "024a587885ae3b7937da74ca3d257fd726eb1976a4788e66690866147571b330",
-          "sha1": "7e34f3495126631580cc7c24ecbf62dc211ea064",
-          "md5": "4e5ce50f24a7098b253cee507505e256"
+          "size": 25493,
+          "sha512": "aee191303ed67001f24e7eeb14a3f2d78ca2fb08a61bcdae4dd5fd3cd0787c22c945bb9d3b82bd2db32b8b86e9013f13f64d93a960120d6956761579de9f1341",
+          "sha256": "1a96b58028bfd308e346f9889fbfcf9813400fa2d0995f0ac02f61d67543c448",
+          "sha1": "212e9f518ed0e73bb7df660a25d73d36c353b1d7",
+          "md5": "642eafb06fb2549469f3a1f6b73ea89d"
         }
       ]
     },
@@ -57,11 +57,11 @@
         {
           "name": "pluginhook-1.0.jar",
           "url": "pluginhook-1.0.jar",
-          "size": 25484,
-          "sha512": "e74e1f696338e94a43c3f04b09b777628ab4e1b74b98225c5aea084dc42c6d6ea0ab48df692af945703fe3bf0a3b25b8d85bcaf9ce53a41408d3a9e1d8eb301c",
-          "sha256": "024a587885ae3b7937da74ca3d257fd726eb1976a4788e66690866147571b330",
-          "sha1": "7e34f3495126631580cc7c24ecbf62dc211ea064",
-          "md5": "4e5ce50f24a7098b253cee507505e256"
+          "size": 25493,
+          "sha512": "aee191303ed67001f24e7eeb14a3f2d78ca2fb08a61bcdae4dd5fd3cd0787c22c945bb9d3b82bd2db32b8b86e9013f13f64d93a960120d6956761579de9f1341",
+          "sha256": "1a96b58028bfd308e346f9889fbfcf9813400fa2d0995f0ac02f61d67543c448",
+          "sha1": "212e9f518ed0e73bb7df660a25d73d36c353b1d7",
+          "md5": "642eafb06fb2549469f3a1f6b73ea89d"
         }
       ]
     }

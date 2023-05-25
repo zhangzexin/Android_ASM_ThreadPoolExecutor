@@ -37,9 +37,9 @@ android {
 }
 
 PluginExt {
-    method = "getInstance"
-    thread_des = "Lcom/zzx/testapp/proxy/JavaThreadPoolExecutorProxy;"
-    threadclass = "com/zzx/testapp/proxy/JavaThreadPoolExecutorProxy"
+    poolmethod = "asw_getInstance"
+    threadpool_des = "Lcom/zzx/testapp/proxy/JavaThreadPoolExecutorProxy;"
+    thread_des = "Lcom/zzx/testapp/proxy/ThreadProxy;"
 }
 
 dependencies {

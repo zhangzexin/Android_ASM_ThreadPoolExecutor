@@ -8,6 +8,7 @@ import android.util.Log;
 import com.zzx.testapp.R;
 import com.zzx.testapp.exp.TestThreadPoolExecutor;
 import com.zzx.testapp.otherpool.SimplePool;
+import com.zzx.testapp.proxy.ThreadProxy;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -72,6 +73,14 @@ public class TestActivity extends AppCompatActivity {
                 Log.d("TAG", "run: executorService.execute()中的Run方法");
             }
         });
+
+        Thread thread = new ThreadProxy(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("TAG", "run: run野线程");
+            }
+        });
+        thread.start();
 
     }
 }
