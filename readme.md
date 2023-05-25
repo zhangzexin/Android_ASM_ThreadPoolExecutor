@@ -5,7 +5,7 @@
 |-plugin_hook Gradle插件源文件
 |      |-main
 |          |-groovy 存放Gradle脚本
-|          |-java 对应的转换类，实际超控ASM
+|          |-java 对应的转换类，实际操控ASM
 |-repo 生成好的插件
 ```
 ## 使用方法
